@@ -54,7 +54,7 @@ root module, child module 로 구분할 수 있다.
 
 style Conventions  
 두개의 스페이바를 따르고  
-아래처럼 하이픈을 기준으로 보기 깔끔하게 key 와 value 를 확인할 수 있도록 지향한다.
+아래처럼 하이픈을 기준으로 보기 깔끔하게 key와 value 를 확인할 수 있도록 지향한다.
 
 ```bash
 ami           = "abc123"

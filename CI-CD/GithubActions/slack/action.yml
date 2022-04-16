@@ -1,5 +1,5 @@
-name: "DevOps custom actions"
-description: "github actions slack message Test"
+name: "Devops custom actions"
+description: "Fastcampus devops custom actions"
 author: "DJ"
 
 runs:

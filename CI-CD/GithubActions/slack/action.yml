@@ -1,0 +1,7 @@
+name: "DevOps custom actions"
+description: "github actions slack message Test"
+author: "DJ"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"

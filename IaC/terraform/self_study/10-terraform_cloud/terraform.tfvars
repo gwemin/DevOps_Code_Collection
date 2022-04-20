@@ -29,4 +29,10 @@ users = [
     role         = "마케팅"
     is_developer = false
   },
+  {
+    name         = "william"
+    level        = 2
+    role         = "시니어 개발자"
+    is_developer = true
+  }
 ]

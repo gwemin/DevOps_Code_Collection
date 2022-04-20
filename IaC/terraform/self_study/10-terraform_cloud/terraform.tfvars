@@ -1,29 +1,32 @@
 users = [
   {
-    name         = "gwemin"
+    name         = "john"
     level        = 7
-    role         = "상무"
+    role         = "재무"
     is_developer = false
   },
   {
     name         = "alice"
-    level        = 6
-    role         = "시니어"
+    level        = 1
+    role         = "인턴 개발자"
     is_developer = true
-    }, {
-    name         = "william"
+  },
+  {
+    name         = "tony"
+    level        = 4
+    role         = "데브옵스"
+    is_developer = true
+  },
+  {
+    name         = "cindy"
     level        = 9
     role         = "경영"
-    is_developer = true
-    }, {
-    name         = "monther"
-    level        = 4
-    role         = "인턴"
     is_developer = false
-    }, {
-    name         = "cindy"
-    level        = 2
-    role         = "대리"
-    is_developer = true
-  }
+  },
+  {
+    name         = "hoon"
+    level        = 3
+    role         = "마케팅"
+    is_developer = false
+  },
 ]

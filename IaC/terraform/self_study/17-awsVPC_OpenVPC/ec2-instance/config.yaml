@@ -1,0 +1,6 @@
+context: {}
+
+remote_states:
+  "network":
+    organization: "gwemin-devops-terraform"
+    workspace: "terraform-lab-network"

@@ -1,52 +1,53 @@
-output "config" {
-  value = local.config
-}
+resource "aws_ec2_managed_prefix_list" "ipv4" {
+  for_each = {
+    for prefix_list in local.config.prefix_lists.ipv4 :
+    prefix_list.name => prefix_list
+  }
 
-output "prefix_lists" {
-  value = {
-    ipv4 = {
-      for name, prefix_list in aws_ec2_managed_prefix_list.ipv4 :
-      name => {
-        id      = prefix_list.id
-        arn     = prefix_list.arn
-        name    = prefix_list.name
-        entries = prefix_list.entry
-        version = prefix_list.version
-      }
-    }
-    ipv6 = {
-      for name, prefix_list in aws_ec2_managed_prefix_list.ipv6 :
-      name => {
-        id      = prefix_list.id
-        arn     = prefix_list.arn
-        name    = prefix_list.name
-        entries = prefix_list.entry
-        version = prefix_list.version
-      }
+  name           = each.key
+  address_family = "IPv4"
+  max_entries    = each.value.max_entries
+
+  dynamic "entry" {
+    for_each = each.value.entries
+
+    content {
+      cidr        = entry.value.cidr
+      description = entry.value.description
     }
   }
+
+  tags = merge(
+    {
+      "Name" = each.key
+    },
+    local.workspace_tags,
+  )
 }
 
-output "vpc" {
-  value = module.vpc
-}
+resource "aws_ec2_managed_prefix_list" "ipv6" {
+  for_each = {
+    for prefix_list in local.config.prefix_lists.ipv6 :
+    prefix_list.name => prefix_list
+  }
 
-output "subnet_groups" {
-  value = module.subnet_group
-}
+  name           = each.key
+  address_family = "IPv6"
+  max_entries    = each.value.max_entries
 
-output "eip" {
-  value = aws_eip.this
-}
+  dynamic "entry" {
+    for_each = each.value.entries
 
-output "nat_gateway" {
-  value = module.nat_gw
-}
+    content {
+      cidr        = entry.value.cidr
+      description = entry.value.description
+    }
+  }
 
-output "nacl" {
-  value = module.nacl
-}
-
-output "gateway_endpoints" {
-  value = module.vpc_gateway_endpoint
+  tags = merge(
+    {
+      "Name" = each.key
+    },
+    local.workspace_tags,
+  )
 }

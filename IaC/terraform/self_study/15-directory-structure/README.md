@@ -19,3 +19,9 @@ YAML → HCL Object로 변형해준다.
 YAML 파일내의 변수들에 쉽게 접근할 수 있다. )
 
 templatefile 함수는 file을 로딩할때 context variable 전달하여 템플릿을 렌더링한다.
+
+---
+
+테라폼 버전관리 도구
+terraform Switch -> 최근에 만들어진거
+tfenv -> 예전에 만들어진거
